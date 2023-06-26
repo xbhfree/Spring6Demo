@@ -35,6 +35,11 @@ jdk17
 #### Ioc
 * `Inverse of Control` 控制反转
 * 把创建对象的过程交给Spring进行管理
+* 如何创建对象
+  1. 加载bean.xml文件
+  2. 对xml文件进行解析
+  3. 获取xml文件bean标签属性值id和属性class值
+  4. 使用反射根据全路径创建对象
 #### Aop
 * `Aspect Oriented Programming` 面向切面编程
 * 封装多个类的公共行为，将与业务无关的公共调用逻辑封装起来
