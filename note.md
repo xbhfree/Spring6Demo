@@ -34,12 +34,27 @@ jdk17
 ### 核心
 #### Ioc
 * `Inverse of Control` 控制反转
+  * Spring通过IoC容器管理所有java对象的实例化和初始化，控制对象与对象之间的依赖关系
+  * IoC管理的对象称为Spring Bean，它与直接new出来的java对象没有任何区别
 * 把创建对象的过程交给Spring进行管理
-* 如何创建对象
+* 如何创建对象？
   1. 加载bean.xml文件
   2. 对xml文件进行解析
   3. 获取xml文件bean标签属性值id和属性class值
   4. 使用反射根据全路径创建对象
+  5. ![img.png](img.png)![]
+* 控制反转，反转的是什么？
+  1. 创建对象的权力
+  2. 对象与对象之间依赖关系的维护权
+* 控制反转如何实现？
+  * DI（Dependency Injection）:依赖注入
+##### DI
+* 定义：Spring创建对象的过程中，将对象属性通过配置进行注入
+* 实现方式：
+  * set注入
+  * 构造注入
+* BeanFactory结构：
+  * ![img_1.png](img_1.png)
 #### Aop
 * `Aspect Oriented Programming` 面向切面编程
 * 封装多个类的公共行为，将与业务无关的公共调用逻辑封装起来
