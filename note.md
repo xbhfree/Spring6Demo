@@ -55,6 +55,11 @@ jdk17
   * 构造注入
 * BeanFactory结构：
   * ![img_1.png](img_1.png)
+* 获取bean的三种方式
+  * 根据bean.xml中的类id
+  * 根据类的属性，类.class
+    * `注意`：根据类型获取bean时，要求ioc中指定类型的bean只有一个
+  * 根据id和属性
 #### Aop
 * `Aspect Oriented Programming` 面向切面编程
 * 封装多个类的公共行为，将与业务无关的公共调用逻辑封装起来
