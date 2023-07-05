@@ -53,6 +53,16 @@ jdk17
 * 实现方式：
   * set注入
   * 构造注入
+    * 根据name注入
+    * 根据index注入，0为开始
+* 特殊值处理
+  * 字面量赋值：int a = 10;  10就是字面量  使用value给bean的属性赋值时，Spring会把value属性看作字面量
+  * null：```
+  <constructor-arg index="0">
+    <null></null>
+    </constructor-arg>```
+  * xml实体：value中特殊符号转义，如`< `需要转义为`&lt`, `>` 需要转义为`&gt`,转义字符用`;`分割
+  * CDATA节：解决特殊符号```<value><![CDATA[ a > b]]></value>```
 * BeanFactory结构：
   * ![img_1.png](img_1.png)
 * 获取bean的三种方式
