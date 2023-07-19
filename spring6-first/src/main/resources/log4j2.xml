@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+    <loggers>
+    <!--
+          log4j指定级别由低到高，高级别自动屏蔽低级别信息显示
+          trace：追踪，最低级别，跟踪程序运行
+          debug：调试，开发中常用的最低日志级别
+          info：信息，输出重要信息
+          warn：警告
+          error：错误
+          fatal：致命错误
+          -->
+        <root level="DEBUG">
+            <appender-ref ref="spring6log"/>
+            <appender-ref ref="RollingFile"/>
+            <appender-ref ref="log"/>
+        </root>
+    </loggers>
+    <appenders>
+        <!--        输出日志信息到控制台-->
+        <console name="spring6log" target="SYSTEM_OUT">
+        <!--            控制日志输出格式
+        -->
+
+            <PatternLayout pattern = "%d{yyyy-MM-dd HH:mm:ss} [%t] %-3level %logger{1024} - %msg%n"/>
+        </console>
+        <!--文件输出-->
+        <File name="log" fileName="d:/logs/spring6Demo_log/test.log" append="false">
+            <PatternLayout pattern = "%d{HH:mm:ss.SSS} %-5level %class{36} %L %M - %msg%xEx%n"/>
+        </File>
+
+        <RollingFile name="RollingFile" fileName="d:/logs/spring6Demo_log/testRollingFile.log"
+                     filePattern="log/$${date:yyyy-MM}app-%d{MM-dd-yyyy}-%i.log">
+            <PatternLayout pattern = "%d{yyyy-MM-dd 'at' HH:mm:ss} %-5level %class{36} %L %M - %msg%xEx%n"/>
+            <!--超过size大小的文件会按照存入年份-月份建立的文件夹下面压缩，作为存档-->
+            <SizeBasedTriggeringPolicy size="50MB"/>
+            <!--默认最多一个文件夹下放7个文件，可以改成20个-->
+            <DefaultRolloverStrategy max="20"/>
+        </RollingFile>
+    </appenders>
+</configuration>
