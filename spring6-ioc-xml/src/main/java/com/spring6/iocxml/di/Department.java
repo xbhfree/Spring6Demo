@@ -1,5 +1,11 @@
 package com.spring6.iocxml.di;
-//部门类
+
+import lombok.Data;
+
+@Data
+/**
+ *  部门类
+ */
 public class Department {
-    String String dname;
+    private String dname;
 }
