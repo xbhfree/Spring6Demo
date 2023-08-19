@@ -6,9 +6,24 @@
         <property name="dname" value="开发部门"></property>
     </bean>
 
+    <!--引入外部bean-->
     <bean id="employee" class="com.spring6.iocxml.di.Employee">
         <property name="ename" value="john"></property>
         <property name="age" value="12"></property>
         <property name="department" ref="department"></property>
+    </bean>
+
+
+    <bean id="employee2" class="com.spring6.iocxml.di.Employee">
+        <!--   普通属性     -->
+        <property name="ename" value="adobe"></property>
+        <property name="age" value="22"></property>
+        <!-- 内部bean -->
+        <property name="department">
+            <!-- 内部bean   -->
+            <bean id="department2" class="com.spring6.iocxml.di.Department">
+                <property name="dname" value="安保部"></property>
+            </bean>
+        </property>
     </bean>
 </beans>
