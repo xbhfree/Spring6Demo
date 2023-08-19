@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="book_setter_di" class="com.spring6.iocxml.di.Book">
+        <property name="bname" value="前端开发"></property>
+        <property name="author" value="xbh"></property>
+    </bean>
+
+    <bean id="book_constructor_di_byname" class="com.spring6.iocxml.di.Book">
+        <constructor-arg name="bname" value="java开发"></constructor-arg>
+        <constructor-arg name="author" value="xbh"></constructor-arg>
+    </bean>
+
+
+    <bean id="book_constructor_di_byindex" class="com.spring6.iocxml.di.Book">
+        <constructor-arg index="0" value="java开发"></constructor-arg>
+        <constructor-arg index="1" value="xbh"></constructor-arg>
+    </bean>
+</beans>

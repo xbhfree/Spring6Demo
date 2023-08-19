@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+    <loggers>
+    <!--
+          log4j指定级别由低到高，高级别自动屏蔽低级别信息显示
+          trace：追踪，最低级别，跟踪程序运行
+          debug：调试，开发中常用的最低日志级别
+          info：信息，输出重要信息
+          warn：警告
+          error：错误
+          fatal：致命错误
+          -->
+        <root level="DEBUG">
+            <appender-ref ref="spring6log"/>
+            <appender-ref ref="RollingFile"/>
+            <appender-ref ref="log"/>
+        </root>
+    </loggers>
+    <appenders>
+        <!--        输出日志信息到控制台-->
+        <console name="spring6log" target="SYSTEM_OUT">
+        <!--            控制日志输出格式
+        -->
+
+            <PatternLayout pattern = "%d{yyyy-MM-dd HH:mm:ss} [%t] %-3level %logger{1024} - %msg%n"/>
+        </console>
+
+    </appenders>
+</configuration>
