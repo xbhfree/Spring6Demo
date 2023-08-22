@@ -23,4 +23,11 @@ public class TestRef {
         Employee employee = (Employee)context.getBean("employee2");
         employee.work();
     }
+    //级联注入
+    @Test
+    public void testDeptAndEmp3(){
+        ApplicationContext context = new ClassPathXmlApplicationContext("bean-ref.xml");
+        Employee employee = (Employee)context.getBean("employee3");
+        employee.work();
+    }
 }

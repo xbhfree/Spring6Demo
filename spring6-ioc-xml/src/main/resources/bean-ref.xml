@@ -2,11 +2,10 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--引入外部bean-->
     <bean id="department" class="com.spring6.iocxml.di.Department">
         <property name="dname" value="开发部门"></property>
     </bean>
-
-    <!--引入外部bean-->
     <bean id="employee" class="com.spring6.iocxml.di.Employee">
         <property name="ename" value="john"></property>
         <property name="age" value="12"></property>
@@ -25,5 +24,18 @@
                 <property name="dname" value="安保部"></property>
             </bean>
         </property>
+    </bean>
+
+
+    <!-- 级联赋值   -->
+    <bean id="department3" class="com.spring6.iocxml.di.Department">
+        <property name="dname" value="科学发展部"></property>
+    </bean>
+    <bean id="employee3" class="com.spring6.iocxml.di.Employee">
+        <property name="ename" value="jojo"></property>
+        <property name="age" value="18"></property>
+        <property name="department" ref="department3"></property>
+        <!--    直接注入引用属性，使用value    -->
+        <property name="department.dname" value="测试部"></property>
     </bean>
 </beans>
