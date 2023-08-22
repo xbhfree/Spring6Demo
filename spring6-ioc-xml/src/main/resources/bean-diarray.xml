@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--数组类型注入-->
+	<bean id="department" class="com.spring6.iocxml.di.Department">
+		<property name="dname" value="开发部"></property>
+	</bean>
+	<bean id="employee" class="com.spring6.iocxml.di.Employee">
+		<property name="ename" value="alisa"></property>
+		<property name="age" value="21"></property>
+		<property name="department" ref="department"></property>
+		<property name="hobbies">
+			<array>
+				<value>吃饭</value>
+				<value>睡觉</value>
+				<value>打豆豆</value>
+			</array>
+		</property>
+	</bean>
+
+</beans>
