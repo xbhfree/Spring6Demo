@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="Dept" class="com.spring6.iocxml.di.Department">
+        <property name="dname" value="真理部"></property>
+        <property name="employeeMap">
+            <map>
+                <entry>
+                    <key>
+                        <value>10001</value>
+                    </key>
+                    <ref bean="Emp01"></ref>
+                </entry>
+                <entry>
+                    <key>
+                        <value>10001</value>
+                    </key>
+                    <ref bean="Emp01"></ref>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="Emp01" class="com.spring6.iocxml.di.Employee">
+        <property name="ename" value="alisa"></property>
+        <property name="age" value="21"></property>
+        <!--<property name="department" ref="Dept"></property>-->
+    </bean>
+
+    <bean id="Emp02" class="com.spring6.iocxml.di.Employee">
+        <property name="ename" value="bob"></property>
+        <property name="age" value="25"></property>
+        <!--<property name="department" ref="Dept"></property>-->
+    </bean>
+</beans>
