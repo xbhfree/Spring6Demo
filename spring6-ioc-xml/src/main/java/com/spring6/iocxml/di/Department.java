@@ -14,6 +14,9 @@ public class Department {
 
     private List<Employee> employeeList = null;
 
+    //部门藏书
+    private List<Book> bookList;
+
     private Map<String, Employee> employeeMap;
 
     public void info(){
@@ -22,5 +25,8 @@ public class Department {
             employeeList.stream().forEach(System.out::println);
         }
         System.out.println(employeeMap.toString());
+        if (bookList != null) {
+            bookList.stream().forEach(System.out::println);
+        }
     }
 }

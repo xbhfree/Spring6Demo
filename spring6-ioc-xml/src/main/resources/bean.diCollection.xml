@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/util
+       http://www.springframework.org/schema/util/spring-util.xsd
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--
+        1.引入标签依赖：
+        xmlns:util="http://www.springframework.org/schema/util"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        2.<util:list><util:map>标签
+        3.在bean中加入
+    -->
+    <bean id="Dept" class="com.spring6.iocxml.di.Department">
+        <property name="dname" value="综合部门"></property>
+        <property name="bookList" ref="bookList"></property>
+        <property name="employeeMap" ref="empMap"></property>
+    </bean>
+
+
+    <util:list id="bookList">
+        <ref bean="Book01"></ref>
+        <ref bean="Book02"></ref>
+    </util:list>
+
+    <util:map id="empMap">
+        <entry>
+            <key>
+                <value>10001</value>
+            </key>
+            <ref bean="Emp01"></ref>
+        </entry>
+        <entry>
+            <key>
+                <value>10002</value>
+            </key>
+            <ref bean="Emp02"></ref>
+        </entry>
+    </util:map>
+
+    <bean id="Book01" class="com.spring6.iocxml.di.Book">
+        <property name="bname" value="Hello java"></property>
+        <property name="author" value="Jimi"></property>
+    </bean>
+    <bean id="Book02" class="com.spring6.iocxml.di.Book">
+        <property name="bname" value="Hello spring6"></property>
+        <property name="author" value="Timi"></property>
+    </bean>
+
+    <bean id="Emp01" class="com.spring6.iocxml.di.Employee">
+        <property name="ename" value="alisa"></property>
+        <property name="age" value="21"></property>
+    </bean>
+    <bean id="Emp02" class="com.spring6.iocxml.di.Employee">
+        <property name="ename" value="bob"></property>
+        <property name="age" value="23"></property>
+    </bean>
+</beans>
