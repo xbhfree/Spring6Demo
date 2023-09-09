@@ -2,10 +2,17 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:p="http://www.springframework.org/schema/p"
        xsi:schemaLocation="http://www.springframework.org/schema/util
        http://www.springframework.org/schema/util/spring-util.xsd
        http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--p命名空间-->
+    <bean id="DeptP" class="com.spring6.iocxml.di.Department"
+    p:dname="综合部门" p:bookList-ref="bookList" p:employeeMap-ref="empMap">
+    </bean>
+
     <!--
         1.引入标签依赖：
         xmlns:util="http://www.springframework.org/schema/util"
