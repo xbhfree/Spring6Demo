@@ -33,6 +33,9 @@ jdk17
 
 ### 核心
 #### Ioc
+
+##### 基础概念
+
 * `Inverse of Control` 控制反转
   * Spring通过IoC容器管理所有java对象的实例化和初始化，控制对象与对象之间的依赖关系
   * IoC管理的对象称为Spring Bean，它与直接new出来的java对象没有任何区别
@@ -48,6 +51,14 @@ jdk17
   2. 对象与对象之间依赖关系的维护权
 * 控制反转如何实现？
   * DI（Dependency Injection）:依赖注入
+
+#####  引入外部属性文件
+
+* 步骤：
+  1. 引入数据库相关依赖
+  2. 创建外部属性文件，properties格式，定义数据信息：用户名，密码，地址等
+  3. 创建spring配置文件，引入context命名空间，引入属性文件，使用表达式完成注入
+
 ##### DI
 * 定义：Spring创建对象的过程中，将对象属性通过配置进行注入
 * 实现方式：
@@ -58,7 +69,7 @@ jdk17
 * 特殊值处理
   * 字面量赋值：int a = 10;  10就是字面量  使用value给bean的属性赋值时，Spring会把value属性看作字面量
   * null：```
-  <constructor-arg index="0">
+    <constructor-arg index="0">
     <null></null>
     </constructor-arg>```
   * xml实体：value中特殊符号转义，如`< `需要转义为`&lt`, `>` 需要转义为`&gt`,转义字符用`;`分割
