@@ -39,6 +39,17 @@ jdk17
 * WebApplicationContext环境下额外作用域
   * request 在一个请求范围内有效
   * session 在一个会话范围内有效
+
+* bean的生命周期
+  * 具体的生命周期过程：
+    1. bean对象创建（调用无参构造） 
+    2. 给bean对象设置属性
+    3. bean的后置处理（初始化之前）
+    4. bean对象初始化（需要在配置bean时制定初始化方法）
+    5. bean的后置处理器（初始化之后）
+    6. bean对象就绪
+    7. bean对象销毁
+    8. Ioc容器关闭
 #### Ioc
 
 ##### 基础概念
