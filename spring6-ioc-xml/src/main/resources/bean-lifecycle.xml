@@ -7,4 +7,7 @@
     init-method="initMethod" destroy-method="destoryMethod">
         <property name="username" value="alisa"></property>
     </bean>
+
+    <!--Ioc容器注册自己的后置处理器-->
+    <bean id="myBeanPost" class="com.spring6.iocxml.bean_lifecycle.MyBeanPost"></bean>
 </beans>
