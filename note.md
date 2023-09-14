@@ -32,6 +32,13 @@ jdk17
     * `spring-text`：集成测试支持，主要对junit的封装
 
 ### 核心
+#### bean
+* 作用域：
+  * singleton：默认，bean对象始终为单例，创建于Ioc容器初始化时
+  * prototype：bean在Ioc容器中有多个实例，创建于获取bean时
+* WebApplicationContext环境下额外作用域
+  * request 在一个请求范围内有效
+  * session 在一个会话范围内有效
 #### Ioc
 
 ##### 基础概念
