@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--autowire自动注入有byType，byName两种方式
+    byType根据类的类型找，注意不要写成接口，要写实现类
+    byName根据类定义名找，id与自动注入属性名字不匹配有问题,找不到未能匹配的属性-->
+    <bean id="userController" class="com.spring6.iocxml.auto.controller.UserController"
+    autowire="byType">
+    </bean>
+
+    <bean id="userService" class="com.spring6.iocxml.auto.service.UserServiceImpl"
+          autowire="byType">
+    </bean>
+
+    <bean id="userDao" class="com.spring6.iocxml.auto.dao.UserDaoImpl2">
+    </bean>
+</beans>

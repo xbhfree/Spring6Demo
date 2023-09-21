@@ -50,6 +50,9 @@ jdk17
     6. bean对象就绪
     7. bean对象销毁
     8. Ioc容器关闭
+* 自动注入方式
+  1. byType
+  2. byName
 #### Ioc
 
 ##### 基础概念
