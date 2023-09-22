@@ -98,7 +98,7 @@ jdk17
 * 特殊类型注入
   * 对象类型属性注入
     * 一对多
-    * 
+    * 一对一
 * BeanFactory结构：
   * ![img_1.png](img_1.png)
 * 获取bean的三种方式
@@ -106,6 +106,31 @@ jdk17
   * 根据类的属性，类.class
     * `注意`：根据类型获取bean时，要求ioc中指定类型的bean只有一个
   * 根据id和属性
+
+##### 注解
+
+* 实现过程：
+
+  1. 配置xml comtext 配置扫描位置
+  2. 类上写@Component等注解用于扫描
+
+* 高级写法
+
+  * 排除 ：
+
+    1. ```java
+       <!--根据注解排除-->
+       <context:component-scan base-package="com">
+       <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Component"/>
+           </context:component-scan>
+
+    2. ```java
+       <!--根据指定类排除-->   
+       <context:component-scan base-package="com">
+               <context:exclude-filter type="assignable" expression="com.dhy.Factory.main"/>
+           </context:component-scan>
+       ```
+
 #### Aop
 * `Aspect Oriented Programming` 面向切面编程
 * 封装多个类的公共行为，将与业务无关的公共调用逻辑封装起来
