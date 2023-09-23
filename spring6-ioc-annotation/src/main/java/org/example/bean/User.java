@@ -1,4 +1,4 @@
-package org.example;
+package org.example.bean;
 
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
