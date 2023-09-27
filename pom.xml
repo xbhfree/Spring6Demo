@@ -59,6 +59,13 @@
             <artifactId>druid</artifactId>
             <version>1.2.18</version>
         </dependency>
+
+        <!--@Resuorce注解需要用到-->
+        <dependency>
+            <groupId>jakarta.annotation</groupId>
+            <artifactId>jakarta.annotation-api</artifactId>
+            <version>2.1.1</version>
+        </dependency>
     </dependencies>
 
 

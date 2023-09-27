@@ -106,13 +106,27 @@ jdk17
   * 根据类的属性，类.class
     * `注意`：根据类型获取bean时，要求ioc中指定类型的bean只有一个
   * 根据id和属性
-* autowired的6种注入方式
+* @autowired的6种注入方式
   1. 属性注入
   2. set注入
   3. 构造注入
   4. 形参注入，在构造方法内的参数前加上autowired注解
   5. 构造省略注解注入，在只有一个构造方法的情况下，可以省去autowired注解
   6. autowired+qualifier根据参数名注入
+* @resource注解注入
+  * 默认根据名称注入byName，未指定名称时，使用属性作为名称，通过名称无法匹配则根据类型byType装配
+  * 只有2种注入方式
+    * 属性注入
+    * set注入
+  * jdk8-jdk11不同引入依赖，其余版本需要引入
+  * ```pom
+    <dependency>
+       <groupId>jakarta.annotation</groupId>
+       <artifactId>jakarta.annotation-api</artifactId>
+       <version>2.1.1</version>
+    </dependency>
+    
+
 ##### 注解
 
 * 实现过程：
