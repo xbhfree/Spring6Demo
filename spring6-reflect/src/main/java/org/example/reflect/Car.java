@@ -14,7 +14,7 @@ public class Car {
 
     private String color;
 
-    public void run(){
+    private void run(){
         System.out.println("私有方法。。。");
     }
 
