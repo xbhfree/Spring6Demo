@@ -156,7 +156,16 @@ jdk17
                <context:exclude-filter type="assignable" expression="com.dhy.Factory.main"/>
            </context:component-scan>
        ```
-
+##### 手写ioc
+* 实现步骤：
+  1. 创建子模块 spring6-myioc
+  2. 创建测试类service dao
+  3. 创建注解：@Bean创建对象，@Di属性注入
+  4. 创建bean容器接口，ApplicationContext定义方法，返回对象
+  5. 实现bean容器接口
+     1. 返回对象
+     2. 根据包规则加载bean
+     * 比如包org.example,扫描这个包，和该包的所有子类的包，看类上面是否有@Bean注解，如果有通过反射实例化
 #### Aop
 * `Aspect Oriented Programming` 面向切面编程
 * 封装多个类的公共行为，将与业务无关的公共调用逻辑封装起来
