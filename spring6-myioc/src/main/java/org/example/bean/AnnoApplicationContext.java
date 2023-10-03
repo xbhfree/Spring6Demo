@@ -1,12 +1,16 @@
 package org.example.bean;
 
 import org.example.anno.Bean;
+import org.example.anno.Di;
 
 import java.io.File;
+import java.lang.reflect.Field;
 import java.net.URL;
 import java.net.URLDecoder;
 import java.util.Enumeration;
 import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 
 public class AnnoApplicationContext implements ApplicationContext{
     private HashMap<Class, Object> beanFactory = new HashMap<>();
@@ -45,9 +49,11 @@ public class AnnoApplicationContext implements ApplicationContext{
             //包扫描
             loadBean(new File(filePath));
         }
-
+        loadDi();
     }
 
+
+    //加载对象
     private void loadBean(File file) {
         //1.判断当前是否为文件夹
         if(file.isDirectory()){
@@ -101,9 +107,36 @@ public class AnnoApplicationContext implements ApplicationContext{
                 }
             }
         }
+    }
 
-
-
-        //4.6对象实例化后放入beanFactory
+    //加载对象属性
+    void loadDi() {
+        //1.获得对象
+        Set<Map.Entry<Class, Object>> entries = beanFactory.entrySet();
+        //2.遍历取属性
+        for (Map.Entry<Class, Object> entry : entries) {
+            Object obj = entry.getValue();
+            //根据对象获取类
+            Class<?> clazz = obj.getClass();
+            //获取每个对象的属性
+            Field[] declaredFields = clazz.getDeclaredFields();
+            for (Field declaredField : declaredFields) {
+                if (declaredField.getAnnotation(Di.class) != null){
+                    //私有属性，需要设置
+                    declaredField.setAccessible(true);
+                    //有di注解，把对象进行注入
+                    /**
+                     *  obj有di注解的对象，declaredField要注入值的属性，
+                     *  beanFactory.get(declaredField.getType())
+                     *  根据类型注入的值，有多个会有问题,控制反转类的时候，只会留下最新的实现类
+                     */
+                    try {
+                        declaredField.set(obj, beanFactory.get(declaredField.getType()));
+                    }catch (Exception e){
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }
     }
 }
