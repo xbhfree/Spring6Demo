@@ -1,8 +1,9 @@
-package org.example;
+package org.example.annoaop;
 
-import java.util.Date;
+import org.springframework.stereotype.Component;
 
-public class CalculatorImpl implements Calculator, TimeDemo{
+@Component
+public class CalculatorImpl implements Calculator {
 
     @Override
     public int add(int x, int y) {
@@ -16,10 +17,5 @@ public class CalculatorImpl implements Calculator, TimeDemo{
         int result = x - y;
         System.out.println("sub result = " + result);
         return result;
-    }
-
-    @Override
-    public void showTime() {
-        System.out.println("现在的时间是" + new Date());
     }
 }
