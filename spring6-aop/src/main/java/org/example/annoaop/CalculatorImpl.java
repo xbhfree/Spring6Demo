@@ -18,4 +18,10 @@ public class CalculatorImpl implements Calculator {
         System.out.println("sub result = " + result);
         return result;
     }
+
+    @Override
+    public float div(float x, float y) {
+        //int a = 1/0;
+        return x/y;
+    }
 }
