@@ -25,7 +25,7 @@ public class LogAspect {
         System.out.println("before log ..." + "method = " + methodName + ",args = " + args);
     }
     //后置
-    @After(value = "execution(* org.example.annoaop.*.*(..))")
+    @After(value = "pointCut()")
     public void afterMethod(JoinPoint joinPoint){
         String methodName = joinPoint.getSignature().getName();
         System.out.println("after log ..." + "method = " + methodName);
@@ -65,4 +65,8 @@ public class LogAspect {
             return result;
         }
     }
+
+    //重用切入点表达式
+    @Pointcut(value = "execution(* org.example.annoaop.*.*(..))")
+    public void pointCut(){}
 }
