@@ -1,7 +1,7 @@
 package org.example.jdbc;
 
 
-import org.example.pojo.User;
+import org.example.pojo.Emp;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -61,17 +61,17 @@ public class TestJdbcTemplate {
     @Test
     public void testQueryObject(){
         String sql = "select * from t_emp where id = ?";
-        User user = new User();
-        /*user = jdbcTemplate.queryForObject(sql, (t, r) ->{
-            User t_user = new User();
-            t_user.setId(t.getInt("id"));
-            t_user.setName(t.getString("name"));
-            t_user.setAge(t.getInt("age"));
-            t_user.setSex(t.getString("sex"));
-            return t_user;
+        Emp Emp = new Emp();
+        /*Emp = jdbcTemplate.queryForObject(sql, (t, r) ->{
+            Emp t_Emp = new Emp();
+            t_Emp.setId(t.getInt("id"));
+            t_Emp.setName(t.getString("name"));
+            t_Emp.setAge(t.getInt("age"));
+            t_Emp.setSex(t.getString("sex"));
+            return t_Emp;
         } ,2);*/
-        user = jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(User.class), 2);
-        System.out.println(user);
+        Emp = jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(Emp.class), 2);
+        System.out.println(Emp);
     }
 
 
@@ -81,8 +81,8 @@ public class TestJdbcTemplate {
     @Test
     public void testQueryList(){
         String sql = "select * from t_emp";
-        List<User> userList = jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(User.class));
-        System.out.println(userList);
+        List<Emp> EmpList = jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Emp.class));
+        System.out.println(EmpList);
     }
 
 
