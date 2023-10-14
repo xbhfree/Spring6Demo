@@ -221,3 +221,27 @@ jdk17
 2. 一致性：一个事务在执行前后数据库处于一致性状态，事务成功，系统所有变化应正确应用，系统处于有效状态。事务出错，系统所有变化自动回滚，系统退回原始状态
 3. 隔离性：并发环境下，不同事物操作相同数据时，每个事务有独自完整的数据空间，并行事务不会看到其他事务的中间状态
 4. 持久性：事务成功结束，数据库更新必须被保存，即使系统崩溃，重启系统后数据库应恢复道事务成功结束时的状态
+### trasactional方法属性
+1. readOnly 默认false，设置为true时只能进行读操作
+2. timeout  默认-1，不超时，设置为3时，则为3s后未能操作完成进行回滚
+3. isolation 事务隔离级别 isolation = Isolation.DEFAULT
+   * 一个事务与其他事务隔离的程度称为隔离级别，隔离级别越高，数据一致性越好，并发行越弱
+   * 读未提交-READ UNCOMMITTED 允许事务1读取事务2未提交的修改
+   * 读已提交-READ COMMITTED 允许事务1读取事务2已提交的修改
+   * 可重复读 REPEATABLE READ 确保事务1可以多次从一个字段中读取到相同的值，即事务1执行期间禁止其他事务对这个字段进行更新
+   * 串行化 SERIALIZABLE 确保事务1可以多次从一个表中读取到相同的行，在事务1执行期间，禁止其他事务对这个表进行添加、更新、删除操作，可以避免任何并发问题，但性能低下
+   * oracle支持rc和se 默认为rc
+   * mysql全支持，默认为re
+4. propagation 事务传播行为  propagation = Propagation.REQUIRES_NEW
+   * 在service中有a和b方法，a、b都有事务，当a方法调用了b方法，事务如何传递？合并到一个事务还是开启一个新的事务，这就是事务传播行为
+   * REQUIRED 支持当前事务，不存在就新建
+   * SUPPORTS 支持当前事务，没有就不管了
+   * MANDATORY 必须运行在事务中，没有就报错
+   * REQUIRES_NEW 开启新事务，原来的事务挂起
+   * NOT_SUPPORTED 不支持事务，有事务就挂起
+   * NEVER 不支持事务，有事务就报错
+   * NESTED 有事务a，在事务a中嵌套新的事务b，独立提交回滚，没有事务a则和REQUIRED一样
+5. rollbackFor  事务回滚策略 加异常类即可
+6. rollbackForClassName   事务回滚策略  加全路径
+7. noRollbackFor  事务不回滚策略
+8. noRollbackForClassName  事务不回滚策略

@@ -15,4 +15,17 @@ public class BookTxTest {
         userController.buyBook(1,1);
     }
 
+
+    //测试事务的传播行为
+
+    /**
+     * 测试数据为  a书 50， b书 50， 用户余额99 ，
+     * 由于UserServiceImpl的事务传播级别为REQUIRES_NEW
+     * 所以a书库存减少，用户余额减少，b书购买失败，即每次开启新事物的证明
+     */
+    @Test
+    public void testBuyBooks(){
+        Integer[] bookIds = {1, 2};
+        userController.buyBooks(bookIds, 1);
+    }
 }
