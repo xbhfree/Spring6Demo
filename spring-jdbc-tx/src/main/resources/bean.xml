@@ -10,6 +10,7 @@
        http://www.springframework.org/schema/aop
        http://www.springframework.org/schema/aop/spring-aop.xsd
 ">
+    <context:component-scan base-package="org.example.tx"></context:component-scan>
     <!--引入外部属性文件，创建数据源对象-->
     <context:property-placeholder location="classpath:jdbc.properties"></context:property-placeholder>
 
