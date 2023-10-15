@@ -38,4 +38,20 @@
     transactionManager 为默认值，不写也可
     -->
     <tx:annotation-driven transaction-manager="transactionManager"/>
+
+    <!--xml配置事务-->
+    <!--事务增强-->
+   <!-- <tx:advice id="txAdvice" transaction-manager="transactionManager">
+        <tx:attributes>
+            &lt;!&ndash;设置查询方法只读&ndash;&gt;
+            <tx:method name="get*" read-only="true"/>
+            <tx:method name="update*" read-only="false" propagation="REQUIRED"/>
+            <tx:method name="buy*" read-only="false" propagation="REQUIRED"/>
+        </tx:attributes>
+    </tx:advice>-->
+    <!--配置切入点和通知使用的方法-->
+    <!--<aop:config>
+        <aop:pointcut id="pt" expression="execution(* org.example.tx.service.*.*(..))"/>
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="pt"></aop:advisor>
+    </aop:config>-->
 </beans>
