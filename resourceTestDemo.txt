@@ -1,1 +1,1 @@
-hello resource
+123456
