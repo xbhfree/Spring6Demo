@@ -1,4 +1,4 @@
-package org.example;
+package org.example.resource;
 
 import org.springframework.core.io.FileSystemResource;
 

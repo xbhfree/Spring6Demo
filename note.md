@@ -245,3 +245,12 @@ jdk17
 6. rollbackForClassName   事务回滚策略  加全路径
 7. noRollbackFor  事务不回滚策略
 8. noRollbackForClassName  事务不回滚策略
+## Resource
+### resourceloader
+* ApplicationContext是FileSystemXmlApplicationContext,res就是FileSystemResource
+* ApplicationContext是是ClassPathXmlApplicationContext，res就是ClassPathResource
+* 当spring需要进行资源访问时，实际上并不需要直接使用resource实现类，而是调用ResourceLoader实例的getResource()来获取资源
+* 可通过前缀强制指定resource实现类
+  * Resource res = ctx.getResource("classpath:bean.xml");
+  * Resource res = ctx.getResource("file:bean.xml");
+  * Resource res = ctx.getResource("http:localhost:8080/bean.xml");
