@@ -6,4 +6,6 @@
     <bean id="resourceBean" class="org.example.di.ResourceBean">
         <property name="resource" value="classpath:test.xml"></property>
     </bean>
+
+    <bean id="User" class="org.example.prefix.User"></bean>
 </beans>
