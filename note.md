@@ -259,3 +259,5 @@ jdk17
 * ResourceLoaderAdware接口实现类的实例将获得一个ResourceLoader的引用，ResourceLoaderAdware接口也提供了一个setResourceLoader()方法，该方法有spring容器负责调用，spring容器会将一个ResourceLoader对象作为该方法的参数传入
 * 如果把实现ResourceLoaderAdware接口的Bean类部署道spring容器中，spring容器会将自身当成ResourceLoader作为setResourceLoader的方法参数传入。
 * 由于ApplicationContext的实现类都实现了ResourceLoader接口，spring容器自身完全可以作为ResourceLoader使用
+
+## Validation 数据校验
