@@ -1,4 +1,4 @@
-package org.example;
+package org.example.xml;
 
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.DataBinder;

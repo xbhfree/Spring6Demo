@@ -1,4 +1,4 @@
-package org.example;
+package org.example.xml;
 
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
