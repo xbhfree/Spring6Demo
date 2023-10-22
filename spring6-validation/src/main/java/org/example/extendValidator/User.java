@@ -1,4 +1,4 @@
-package org.example.xml;
+package org.example.extendValidator;
 
 import lombok.Data;
 

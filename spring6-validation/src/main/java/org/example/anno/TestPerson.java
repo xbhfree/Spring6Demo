@@ -4,6 +4,9 @@ import org.junit.jupiter.api.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+/**
+ * 基于注解配置数据校验
+ */
 public class TestPerson {
 
     @Test

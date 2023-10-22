@@ -1,8 +1,11 @@
-package org.example.xml;
+package org.example.extendValidator;
 
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.DataBinder;
 
+/**
+ * 继承validator接口实现数据校验
+ */
 public class TestValidator {
     public static void main(String[] args) {
         //创建对象
