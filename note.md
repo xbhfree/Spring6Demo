@@ -261,3 +261,19 @@ jdk17
 * 由于ApplicationContext的实现类都实现了ResourceLoader接口，spring容器自身完全可以作为ResourceLoader使用
 
 ## Validation 数据校验
+## AOT 提前编译
+* JIT just in time 动态编译（即时），边运行边编译，启动慢，编译时占用运行时资源
+* AOT ahead of time，可以把源代码直接转换为机器码，启动快，内存占用低，缺点：运行时不能优化
+### jvm支持
+需要GraalVm,传统的hotspot不支持
+### graalVm
+* 下载地址：https://www.graalvm.org/downloads/
+* 环境配置：将java_home、graalvm_home改为graalvm安装包的解压位置，path改为graalvm安装包的bin目录
+* 安装插件：gu install native-image，  gu list可以查看插件安装是否成功
+* 安装c++编译环境：visual studio 2023 社区版，并配置环境
+* 安装工具：x64 native tools command prompt for vs 2023
+* 执行测试：
+  * 创建user.java文件
+  * javac user.java 编译为user.class文件
+  * 用x64 native tools command prompt for vs 2023 命令：native-image user
+  * 用x64 native tools command prompt for vs 2023 命令：java user 测试代码
